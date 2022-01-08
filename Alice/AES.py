@@ -1,4 +1,5 @@
 import random
+import operator
 
 def encryptMessage(key, message):
     if len(message) % 16 != 0:
