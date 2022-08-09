@@ -1,0 +1,12 @@
+services:
+  alice:
+    build: .
+    volumes:
+      - "./scr:/scr"
+    entrypoint: ["python", "-u",  "/scr/alice.py"]
+  bob:
+    build: .
+    volumes:
+      - "./scr:/scr"
+    entrypoint: ["python", "-u", "/scr/bob.py"]
+

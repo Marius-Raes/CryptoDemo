@@ -1,10 +1,12 @@
 from keyCreatorRSA import *
 import json
 def sendToBob(msg, operation):
+    
+    print("sending message '{}' to alice".format(msg))
     if(operation == "overwrite"):
-        f = open("internet.txt", "w")
+        f = open("internet.json", "w")
     elif(operation == "append"):
-        f = open("internet.txt", "a")
+        f = open("internet.json", "a")
 
     packet = {"sender": "Alice", "reciver": "Bob", "msg": msg }
     

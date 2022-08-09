@@ -2,21 +2,22 @@ import json
 import random
 
 def readFromAlice():
-    f = open("internet.txt", "r")
+    f = open("internet.json", "r")
     packet = f.readlines()[-1]
     f.close()
     return json.loads(packet)['msg']
 
 def sendToAlice(msg, operation):
+    print("sending message '{}' to alice".format(msg))
     if(operation == "overwrite"):
-        f = open("internet.txt", "w")
+        f = open("internet.json", "w")
     elif(operation == "append"):
-        f = open("internet.txt", "a")
+        f = open("internet.json", "a")
 
     packet = {"sender": "Bob", "reciver": "Alice", "msg": msg }
 
     f.write('\n')
-    f.write(json.dumps(packet))
+    f.write(json.dumps(packet)) 
     f.close()
     return
 

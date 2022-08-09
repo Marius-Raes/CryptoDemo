@@ -1,5 +1,4 @@
 from sympy import randprime, lcm
-import json
 
 def createKeys():
     p = q = 1
@@ -24,3 +23,10 @@ def createKeys():
 
     return keys
 
+def encrypt(publicKey, plain):
+    return plain**publicKey["e"] % publicKey["n"]
+
+
+def decrypt(privateKey, encrypted):
+    return pow(encrypted, privateKey["d"], privateKey["n"])
+    
