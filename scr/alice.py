@@ -1,23 +1,25 @@
+from time import sleep
 import RSA
 import AES
-print("hallo")
-
+import json
 
 keys = RSA.createKeys()
 
 print(keys)
 
-encrypted = RSA.encrypt(keys["public"], 133700000)
 
-print(encrypted)
-
-print(RSA.decrypt(keys["private"], encrypted))
-
-symKey = AES.createKey()
+with open('scr/toBob.json', 'w') as fp:
+    json.dump(keys['public'], fp)
 
 
-encMess = AES.encryptMessage(symKey, "fordi det er Magda baklengs...... Hvis du vrir og snur og vender på bokstavene!")
+sleep(15)
 
-print(encMess)
+with open('scr/toAlice.json', 'r') as fp:
+    symKeyEncrypted = json.load(fp)
 
-print(AES.decryptMessage(symKey, encMess))
+symKey = RSA.decrypt(keys["private"], symKeyEncrypted)
+
+encMess = AES.encryptMessage(symKey, "Men hvorfor heter hun da hønse Lovisa?")
+
+
+print(AES.decryptMessage(symKeyEncrypted, encMess))
