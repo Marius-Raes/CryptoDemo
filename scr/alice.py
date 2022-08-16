@@ -6,7 +6,7 @@ import json
 keys = RSA.createKeys()
 
 
-print(" Hi bob i am sending you my public RSA key")
+print(" Hi bob, i am sending you my public RSA key")
 with open('scr/toBob.json', 'w') as fp:
     json.dump({'publicKey': keys['public']}, fp)
 
