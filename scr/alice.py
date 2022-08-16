@@ -17,7 +17,7 @@ with open('scr/toAlice.json', 'r') as fp:
     symKeyEncrypted = json.load(fp)['symKey']
 
 symKey = RSA.decrypt(keys["private"], symKeyEncrypted)
-print(" I decrypted the symetric key using my private key.")
+print(" I decrypted the symetric key using my private key")
 print(" We both now have the symetric key, i will use it to send an encrypted message to you :)")
 
 encMess = AES.encryptMessage(symKey, "Men hvorfor heter hun da hønse Lovisa?")
