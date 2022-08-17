@@ -1,1 +1,8 @@
-[![asciicast](https://asciinema.org/a/FMqkYJrX7Ta3WbXiq2Sc4jMdl.svg)](https://asciinema.org/a/FMqkYJrX7Ta3WbXiq2Sc4jMdl)
+## How to run
+- Install Docker
+- Clone the repo
+- docker-compose up
+
+## To do
+- Implement proper key exchange
+- Implement AES key expander
